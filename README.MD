@@ -1,4 +1,4 @@
-# Panda clik demo
+# Simulatore Cinematico del Robot Panda
 
 [![N|Solid](https://www.unicampania.it/doc/img/logo_vanvitelli.jpg)](https://www.ingegneria.unicampania.it/roboticslab)
 
