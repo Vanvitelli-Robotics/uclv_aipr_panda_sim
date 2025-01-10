@@ -39,6 +39,15 @@ def generate_launch_description():
                                         description='Flag to enable joint_state_publisher_gui'))
     ################################################################################
 
+    ########### Argument: rviz ##############
+    # This is a boolean argument
+    # true = run the rviz gui
+    # false = no rviz gui
+    # The use of this argument is below..
+    ld.add_action(DeclareLaunchArgument(name='rviz', default_value='true', choices=['true', 'false'],
+                                        description='Flag to enable rviz'))
+    ################################################################################
+
     
     ######### Run the robot_state_publisher ##############################
     # Here we call the launch file urdf_launch/launch/description.launch.py
@@ -83,6 +92,7 @@ def generate_launch_description():
     ld.add_action(Node(
         package='rviz2',
         executable='rviz2',
+        condition=IfCondition(LaunchConfiguration('rviz')),
         output='screen',
         arguments=['-d', LaunchConfiguration('rviz_config')],
     ))
